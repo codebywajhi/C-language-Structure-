@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <string.h>
+
+struct customers {
+    int Accountno;
+    char Name[8];
+    int Balance;
+};
+
+int main() {
+      struct customers Accholder[8];
+
+    Accholder[0].Accountno = 1;
+    strcpy(Accholder[0].Name, "Wajhi");
+    Accholder[0].Balance = 80;
+
+    Accholder[1].Accountno = 2;
+    strcpy(Accholder[1].Name, "Ali");
+    Accholder[1].Balance = 78;
+
+    Accholder[2].Accountno = 3;
+    strcpy(Accholder[2].Name, "zeeshan");
+    Accholder[2].Balance = 120;
+
+    Accholder[3].Accountno = 4;
+    strcpy(Accholder[3].Name, "Ali");
+    Accholder[3].Balance = 108;
+
+    Accholder[4].Accountno = 5;
+    strcpy(Accholder[4].Name, "wajhi-Ali");
+    Accholder[4].Balance = 28;
+
+    Accholder[5].Accountno = 6;
+    strcpy(Accholder[5].Name, "kashan-Ali");
+    Accholder[5].Balance = 68;
+
+    Accholder[6].Accountno = 7;
+    strcpy(Accholder[6].Name, "sahafan-Ali");
+    Accholder[6].Balance = 58;
+
+    Accholder[7].Accountno = 8;
+    strcpy(Accholder[7].Name, "rafay-Ali");
+    Accholder[7].Balance = 98;
+
+    for (int i = 0; i < 8; i++) {
+        if (Accholder[i].Balance < 100) {
+            printf("Acc number: %d\nName: %s\nBalance: %d\n", Accholder[i].Accountno, Accholder[i].Name, Accholder[i].Balance);
+        }
+    }
+
+    int num;
+    printf("Enter 1 for Deposit, Enter 0 for Withdrawal: ");
+    scanf("%d", &num);
+
+    int useraccnumber;
+    if (num == 0) {
+        printf("Enter Acc-number: ");
+        scanf("%d", &useraccnumber);
+
+        for (int i = 0; i < 8; i++) {
+            if (Accholder[i].Accountno == useraccnumber) {
+                if (Accholder[i].Balance < 100) {
+                    printf("User has insufficient balance.\n");
+                } else if (Accholder[i].Balance >= 100) {
+                    printf("User has sufficient balance.\n");
+                } else {
+                    printf("Invalid!\n");
+                }
+                break;
+            }
+        }
+    } else if (num == 1) {
+        printf("Enter your Acc no: ");
+        scanf("%d", &useraccnumber);
+        for (int i = 0; i < 8; i++) {
+            if (Accholder[i].Accountno == useraccnumber) {
+                printf("Your Account Deposit is: %d\n", Accholder[i].Balance);
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
