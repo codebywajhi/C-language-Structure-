@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+struct student {
+    
+    int RN;
+    char Name[50];
+    char dep[50];
+    char subject[50];
+};
+
+int main() {
+    struct student students[50];
+    
+students[0] = (struct student){1,"wajhi","BSAI","pf"};
+students[1] = (struct student){2,"ali","BSCS","English"};
+students[2] = (struct student){3,"bali","BSCY","PY-torch"};
+students[3] = (struct student){4,"kashif","IEEE","Astronomy"};
+students[4] = (struct student){5,"haneef","BEEE","Electronics"};
+students[5] = (struct student){6,"Rafay","BEME","Metallurgy"};
+
+int rollnum;
+int i;
+ printf("Enter your Roll Number : ");
+ scanf("%d", &rollnum);
+ for (int i = 0 ; i < 7 ; i++){
+    //  In the printf statements, the format specifier %c is used to print individual characters. However, it seems that Name, dep, and subject are intended to be strings (character arrays). To print strings, you should use the %s format specifier.
+    if (rollnum == students[i].RN ){
+        printf("RN :%d\nName :%s\ndep :%s\nsubject :%s\n",students[i].RN,students[i].Name, students[i].dep,students[i].subject);
+    }
+}
+    return 0;
+}
